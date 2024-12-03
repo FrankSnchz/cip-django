@@ -1,0 +1,221 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tablet.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/movil.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/fancybox.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/carrousel.css' %}" />
+
+    <script
+      src="https://kit.fontawesome.com/138f20aa8b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{% static 'js/responsiveslides.js' %}"></script>
+    <script src="{% static 'js/fancybox.js' %}"></script>
+    <title>{% block title %}Cipeninsular{% endblock %}</title>
+  </head>
+  <body>
+    <!-- slide fotos con responsiveslides -->
+    <div class="header-hero slide-fotos">
+      <ul
+        class="{% if request.path == '/' %}rslides{% elif request.path == '/servicios/' %}rslides-servicios{% elif request.path == '/chukum/' %}rslides-services{% endif %}"
+      >
+        {% for slide in slides %}
+        <li><img src="{{ slide.imagen.url }}" alt="" /></li>
+        {% endfor %}
+      </ul>
+
+      <!-- logos navbar -->
+      <div class="texture-overlay"></div>
+      <header
+        id="header"
+        class="{% block header_class %}default-class{% endblock %}"
+      >
+        <div class="nav-movil">
+          <div class="logos">
+            <figure class="logo-solo">
+              <img
+                src="{% static 'images/logo-og-solo.svg' %}"
+                alt="logo solo"
+              />
+            </figure>
+          </div>
+
+          <div class="cart-menu-movil">
+            <i class="cart fa-solid fa-cart-shopping"> </i>
+            <i class="fa-solid fa-bars" id="icon-menu"></i>
+          </div>
+        </div>
+
+        <nav>
+          <ul id="ul-menu">
+            <!--MENÚ INICIO-->
+            <li class="menu-item">
+              <a href="{% url 'inicio' %}">INICIO</a>
+            </li>
+
+            <!--MENÚ CHUKUM-->
+            <li class="menu-item">
+              <a href="{% url 'chukum' %}">MI CHUKUM</a>
+              <ul class="submenu">
+                <li>
+                  <a href="#">Submenu 1</a>
+                </li>
+                <li><a href="#">Submenu 2</a></li>
+                <li><a href="#">Submenu 3</a></li>
+              </ul>
+            </li>
+
+            <!--MENÚ SERVICIOS-->
+            <li class="menu-item">
+              <a
+                >SERVICIOS <i class="arrow-down fa-solid fa-chevron-down"></i
+              ></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#">Nuestros servicios</a>
+                </li>
+                <li><a href="#">Servicios detallados</a></li>
+              </ul>
+            </li>
+
+            <!--MENÚ PROYECTOS-->
+            <li class="menu-item">
+              <a
+                >PROYECTOS <i class="arrow-down fa-solid fa-chevron-down"></i
+              ></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#">Nuestros proyectos</a>
+                </li>
+                <li><a href="#">Galería de proyectos</a></li>
+              </ul>
+            </li>
+
+            <!--MENÚ NOSOTROS-->
+            <li class="menu-item">
+              <a
+                >NOSOTROS <i class="arrow-down fa-solid fa-chevron-down"></i
+              ></a>
+              <ul class="submenu">
+                <li>
+                  <a href="#">Nuestros valores</a>
+                </li>
+                <li><a href="#">Conciencia ambiental</a></li>
+                <li><a href="#">Igualdad de género en el trabajo </a></li>
+              </ul>
+            </li>
+
+            <!--MENÚ CONTACTO-->
+            <li class="menu-item">
+              <a href="">CONTÁCTANOS</a>
+            </li>
+          </ul>
+        </nav>
+
+        <i class="cart fa-solid fa-cart-shopping"> </i>
+      </header>
+
+      <!-- hero -->
+      <section class="hero">
+        <h1></h1>
+      </section>
+    </div>
+
+    <main>
+      {% block content %}
+      <!-- El contenido específico de cada vista se agregará aquí -->
+      {% endblock %}
+    </main>
+
+    <!-- footer -->
+    <footer>
+      <div class="main-footer">
+        <div class="about-info">
+          <figure class="logo-solo">
+            <img src="{% static 'images/logo-og-solo.svg' %}" alt="logo solo" />
+          </figure>
+
+          <p>
+            Somos una empresa 100% Yucateca, fundada en el año 2015 en la ciudad
+            de Mérida, Yucatán, México.
+          </p>
+        </div>
+
+        <div class="contact-info">
+          <h3>Contáctanos</h3>
+          <div class="contact-item">
+            <i class="icon fa-solid fa-phone-volume"></i>
+            <a href="tel:+52 9992 492402">+52 9992 492402</a>
+          </div>
+
+          <div class="contact-item">
+            <i class="icon fa-solid fa-envelope"></i>
+            <a href="mailto:support@company.com">contacto@cipeninsular.com</a>
+          </div>
+
+          <div class="logos-contact">
+            <a
+              href="https://www.facebook.com/profile.php?id=61568988712824"
+              target="_blank"
+              ><i class="logo fa-brands fa-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com/cipeninsular_mx/" target="_blank"
+              ><i class="logo fa-brands fa-instagram"></i
+            ></a>
+            <a href="https://www.youtube.com/@CIPENINSULAR_MX" target="_blank"
+              ><i class="logo fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="ubication-info">
+          <h3>Dónde nos ubicamos</h3>
+          <div class="contact-item">
+            <i class="icon fa-solid fa-location-dot"></i>
+            <a href="https://maps.app.goo.gl/KhEHUkwVatAvD7oR9" target="_blank">
+              55 S/N entre 54 y 60 Hacienda Teya<br />Kanasin, CP. 97370, Mérida
+              Yucatán.
+            </a>
+          </div>
+        </div>
+
+        <div class="help-info">
+          <h3>Información legal</h3>
+          <a href="">Aviso de privacidad</a>
+          <a href="">Política de cookies</a>
+          <a href="">Responsabilidad con el Medio Ambiente</a>
+        </div>
+      </div>
+
+      <div class="line"></div>
+      <div class="copy">
+        <p>
+          <span>Cipeninsular</span> &copy; 2024 . Todos los derechos reservados.
+          Diseñado y desarrollado por <span>CIP</span>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script>
+      new WOW().init();
+    </script>
+
+    <!--GALLERY-->
+    <script>
+      Fancybox.bind("[data-fancybox]", {
+        // Your custom options for a specific gallery
+      });
+    </script>
+    <script src="{% static 'js/carrousel.js' %}"></script>
+  </body>
+</html>

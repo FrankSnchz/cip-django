@@ -20,6 +20,15 @@ $(function () {
   });
 });
 
+$(function () {
+  $(".rslides-services").responsiveSlides({
+    nav: true, // Activar los botones de navegación
+    /* prevText: "❮", */ // Texto para el botón "anterior"
+    /* nextText: "❯", */ // Texto para el botón "siguiente"
+    pauseControls: false, // No pausar al hacer hover en controles
+  });
+});
+
 //--------------MENU-----------------
 $("#icon-menu").click(function () {
   $("#ul-menu").toggleClass("abrir_menu");

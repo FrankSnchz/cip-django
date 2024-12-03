@@ -1,0 +1,171 @@
+
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block header_class %}chukum{% endblock %}
+{% block title %}Mi Chukum{% endblock %} 
+{% block content %}
+
+<section id="chukum">
+  <div class="chukum-banner">
+    <figure>
+      <img src="{% static 'images/banner-piscina-chukum.jpeg' %}" alt="banner-chukum" />
+    </figure>
+  </div>
+  <div class="chukum-info">
+    <div class="chukum-title">
+        <h3>[ MI CHUKUM ]</h3>
+        <h2>¿Qué es el Chukum?</h2>
+    </div>
+
+    <div class="info">
+      <p>
+        El <strong>Chukum</strong> es un material de acabado exclusivo y
+        sofisticado, originario de la región de la Península de Yucatán, México.
+        Proveniente del árbol <em>Havardia albicans</em>, una especie endémica
+        de Yucatán, el Chukum ha sido apreciado desde tiempos de los mayas por
+        su durabilidad y belleza natural.
+      </p>
+
+      <p>Este material único no solo resalta
+        por su aspecto lujoso, sino también por su resistencia y versatilidad,
+        convirtiéndolo en la elección perfecta para quienes buscan un acabado de
+        alta calidad y distinción en sus proyectos. ¡Eleva el diseño de tu
+        espacio con el Chukum y aporta un toque auténtico y elegante de la
+        Península de Yucatán!</p>
+    </div>
+
+    <div class="links-chukum">
+        <a href="">
+            Ver las opciones de compra <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="">Ver los proyectos realizados con Chukum <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!--tienda-->
+<section id="shop">
+  <div class="title-shop">
+    <h3>Transforma tus espacios con un toque de tradición y estilo</h3>
+    <h2>Explora nuestros productos</h2>
+  </div>
+
+  <div class="shop-space">
+    {% for producto in productos %}
+      <a
+        class="wow animate__animated animate__fadeIn"
+        href="{{ producto.imagen_caratula.url }}"
+        data-fancybox="products-{{ producto.id }}"
+        data-caption="{{ producto.nombre }} - ${{ producto.precio }}"
+      >
+        <figure>
+          <img src="{{ producto.imagen_caratula.url }}" alt="{{ producto.nombre }}" />
+          <figcaption>{{ producto.nombre }}</figcaption>
+        </figure>
+      </a>
+
+      <!-- Información adicional del producto -->
+      <div class="product-info">
+        <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+        <p><strong>Stock:</strong> {{ producto.stock }} unidades</p>
+        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+      </div>
+
+      {% for proyecto in producto.proyectos.all %}
+        {% if proyecto.producto_asociado == producto %}
+          <!-- Imágenes adicionales del proyecto asociado al producto -->
+          <a
+            href="{{ proyecto.caratula.url }}"
+            data-fancybox="products-{{ proyecto.id }}"
+            data-caption="Proyecto elaborado con {{ producto.nombre }} - {{ proyecto.nombre }}"
+            style="display: none"
+          >
+            <img src="{{ proyecto.caratula.url }}" alt="{{ proyecto.nombre }}" />
+          </a>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+</section>
+
+<section id="why-chukum">
+  <div class="chukum-benefits">
+    <div class="benefit">
+      <h3>Durabilidad excepcional</h3>
+      <p>
+        Alta resistencia, ideal para acabados duraderos.
+      </p>
+    </div>
+    <div class="benefit">
+      <h3>Estética única</h3>
+      <p>
+        Aporta elegancia y sofisticación con su textura natural.
+      </p>
+    </div>
+    <div class="benefit">
+      <h3>Respetuoso con el medio ambiente</h3>
+      <p>
+        Material ecológico que fomenta la conservación ambiental.
+      </div>
+    <div class="benefit">
+      <h3>Versatilidad de uso</h3>
+      <p>
+        Aplicable en paredes y decoraciones interiores y exteriores.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="carousel">
+  <div id="slide-container">
+    {% for proyecto in proyectos %}
+    <article class="slide" data-slideIndex="{{ forloop.counter0 }}">
+      <a
+        class="wow animate__animated animate__fadeIn"
+        href="{{ proyecto.caratula.url }}"
+        data-fancybox="projects-{{ proyecto.id }}"
+        data-caption="{{ proyecto.nombre }}"
+      >
+        <figure>
+          <img src="{{ proyecto.caratula.url }}" alt="{{ proyecto.nombre }}" />
+          <figcaption>{{ proyecto.nombre }}</figcaption>
+        </figure>
+      </a>
+      {% for imagen in proyecto.images.all %}
+
+      <!--Adicionales-->
+      <a
+        href="{{ imagen.imagen.url }}"
+        data-fancybox="projects-{{ proyecto.id }}"
+        data-caption="{{ imagen.caption|default:proyecto.nombre }}"
+        style="display: none"
+      >
+        <img
+          src="{{ imagen.imagen.url }}"
+          alt="{{ imagen.caption|default:proyecto.nombre }}"
+        />
+      </a>
+      {% endfor %}
+    </article>
+    {% empty %}
+      <p>No hay proyectos disponibles en esta categoría.</p>
+    {% endfor %}
+
+    <div class="arrows-services">
+      <i
+        id="back-button"
+        class="arrow-left arrow fa-solid fa-chevron-left"
+      ></i>
+      <i
+        id="forward-button"
+        class="arrow-right arrow fa-solid fa-chevron-right"
+      ></i>
+    </div>
+  </div>
+
+  
+</section>
+  
+
+{% endblock %}

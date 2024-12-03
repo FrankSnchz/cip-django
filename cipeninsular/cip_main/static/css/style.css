@@ -23,94 +23,104 @@
 
 html 
 {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+.rslides-services {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;    
+  padding: 0;
+  margin: auto;
+  height: 0;
+}
+  
+.rslides-services li {
+  backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.rslides-services li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.rslides-services img {
+  display: block;
+  height: 100%;
+  float: left;
+  width: 100%;
+  border: 0;
+  object-fit: cover;
+  position: relative;
 }
 
 .rslides {
-    position: relative;
-    list-style: none;
-    overflow: hidden;
-    width: 100%;    
-    padding: 0;
-    margin: auto;
-    height: 650px;
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;    
+  padding: 0;
+  margin: auto;
+  height: 650px;
 }
-  
+
 .rslides li {
-    backface-visibility: hidden;
-    position: absolute;
-    display: none;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
+  backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 
 .rslides li:first-child {
-    position: relative;
-    display: block;
-    float: left;
+  position: relative;
+  display: block;
+  float: left;
 }
 
 .rslides img {
-    display: block;
-    height: 100%;
-    float: left;
-    width: 100%;
-    border: 0;
-    object-fit: cover;
-    position: relative;
-
+  display: block;
+  height: 100%;
+  float: left;
+  width: 100%;
+  border: 0;
+  object-fit: cover;
+  position: relative;
 }
 
 .slide-fotos{
-    position: relative;
-    width: 100%;
-    margin: auto;
-}
-
-.rslides_nav.prev, .rslides_nav.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgb(100, 100, 100);
-    padding: 10px;
-    font-size: 3rem;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-    text-decoration: none;
-}
-
-.rslides_nav.prev:hover, .rslides_nav.next:hover {
-    font-size: 3.2rem;
-}
-
-.rslides_nav.prev {
-    left: 3%;
-}
-
-.rslides_nav.next {
-    right: 3%;
+  position: relative;
+  width: 100%;
+  margin: auto;
 }
 
 .header-hero {
-    position: relative;
-    display: flex;
+  position: relative;
+  display: flex;
 }
 
 .texture-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../resources/pattern-points.png');
-    background-size: cover;
-    background-position: center;
-    opacity: .04;
-    pointer-events: none;
-    z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../resources/pattern-points.png');
+  background-size: cover;
+  background-position: center;
+  opacity: .04;
+  pointer-events: none;
+  z-index: 2;
 }
 
 #header {
@@ -230,11 +240,14 @@ html
   }
 }
 
+#header.chukum {
+  background-color: var(--yellow-aditional);
+}
+
 #header.scrolled {
     background-color: var(--yellow-aditional);
     color: white; /* Cambia el color del texto si es necesario */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Agrega una sombra */
-    height: 60px;
 }
 
 /* Estilos para la sección hero */
@@ -442,7 +455,6 @@ html
   padding: 3rem 0;
   background-color: rgba(0, 0, 0, 0.1); /* Color negro con opacidad */
 
-  
   .title-gallery {
     display: flex;
     flex-direction: column;
@@ -513,106 +525,6 @@ html
 
 /* team */
 
-.contenedor-principal {
-  text-align: center;
-  padding: 2rem;
-  width: 100%;
-  border: #0056b3 1px solid;
-  margin: auto;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.underline {
-  width: 50px;
-  height: 4px;
-  background-color: #007bff;
-  margin: 0.5rem auto 2rem;
-  border: none;
-}
-
-.contenedor-secundario {
-  display: flex;
-  overflow: hidden;
-  border: #000000 1px solid;
-  width: 100%;
-}
-
-.slide {
-  text-align: center;
-  min-width: 33.33%;
-}
-
-.imgentest {
-  position: relative;
-  display: inline-block;
-}
-
-.imgentest img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  object-fit: cover;
-}
-
-.icono-encima {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: #007bff;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-h3 {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
-}
-
-.position {
-  font-size: 0.9rem;
-  color: #3574E0;
-  margin-top: 0.2rem;
-}
-
-.slide-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-}
-
-.arrow {
-  color: #fff;
-  background-color: #3574E0;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  margin: 0 0.5rem;
-  border-radius: 5px;
-  text-decoration: none;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.arrow:hover {
-  background-color: #0056b3;
-}
 
 /* Colaboradores */
 #partners {
@@ -949,6 +861,333 @@ footer {
   
   
   
+
+/* VIEW CHUKUM*/
+#chukum {
+  display: flex;
+  gap: 20px;
+
+  .chukum-banner {
+    width: 60%;
+    figure {
+      width: 100%;
+      height: 700px;
+      overflow: hidden; /* Asegura que el contenido sobrante no se vea */
+
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* La imagen se recorta y cubre el contenedor */
+
+      }
+    }
+  }
+
+  .chukum-info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;  
+    gap: 30px;
+    padding: 0px 40px;
+
+    .chukum-title {
+      h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: hsl(0, 0%, 20%);
+      }
+      
+      h3{
+        font-size: .9rem;
+        color: #8a8484;
+      }
+    }
+    
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  .links-chukum {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+
+    a{
+      padding: 20px 25px;
+      font-weight: 600;
+      background-color: #F4F6FF;
+      border-radius: 5px;
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: black;
+      font-size: 1rem;
+
+      i {
+        align-self: flex-end;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;  /* Animación suave */
+        margin-left: 8px;  /* Espacio entre el texto y la flecha */
+        transform: translateX(-10px); /* La flecha comienza desplazada */
+      }
+
+      
+    }
+
+        /* Al hacer hover sobre el enlace, se añade la animación a la flecha */
+    a:hover 
+    {
+      background-color: var(--yellow-primary);
+
+      i {
+        opacity: 1;
+        transform: translateX(0); /* La flecha se desplaza hacia su posición */
+      }
+
+    }
+  }
+}
+
+#shop {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  width: 90%;
+  background-color: #f9f9f9; /* Fondo sutil para el área de productos */
+  border-radius: 10px; /* Bordes redondeados para un toque suave */
+
+  .product-item {
+    width: 250px; /* Ancho de cada producto */
+    flex-shrink: 0; /* No permite que el producto se encoja */
+    text-align: center;
+  }
+  .title-shop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem; /* Espacio debajo del título */
+
+
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: hsl(0, 0%, 20%);
+      text-align: center;
+    }
+    
+    h3{
+      font-size: .9rem;
+      color: #8a8484;
+    }
+  }
+
+  .shop-space {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+    figure {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      border-radius: 8px; /* Bordes redondeados en cada producto */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+  
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px;
+        transition: transform 0.3s ease; /* Agrega un zoom ligero en hover */
+      }
+
+      figcaption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+    }
+
+    figure:hover {
+      transform: scale(1.05); /* Zoom leve al hacer hover */
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Aumento de sombra al hacer hover */
+    }
+
+    figure:hover figcaption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    figure:hover img {
+      transform: scale(1.1);
+    }
+
+        /* Estilo adicional para la información del producto */
+    .product-info {
+      width: 250px;
+      padding: 10px;
+      background-color: #fff;
+      margin-top: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .product-info p {
+      font-size: 14px;
+      color: #333;
+      margin: 5px 0;
+    }
+
+    .product-info strong {
+      color: #444;
+      font-weight: 600;
+    }
+
+    /* Agregar hover en la información del producto */
+    .product-info:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+    }
+  }
+}
+
+#why-chukum {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.1);
+
+
+  .chukum-benefits {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px;
+
+    .benefit {
+      text-align: center;
+      max-width: 250px;
+      h3 {
+        font-size: .9rem;
+      }
+  
+      p {
+        font-size: .8rem;
+      }
+    }
+    
+  }
+}
+
+#carousel {
+  width: 90%;
+  margin: auto;
+  padding: 0px;
+  gap: 0;
+  position: relative;
+
+  .slide {
+    padding: 20px 0;
+
+    align-items: center;
+    
+    figure {
+      width: 100%;
+      height: 300px;
+      display: inline-block;
+      overflow: hidden;
+            
+      img{
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease; /* Agrega un zoom ligero en hover */
+      }
+
+      figcaption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+    }
+
+    figure:hover figcaption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    figure:hover img {
+      transform: scale(1.1);
+    }
+  }
+
+  .arrows-services{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Evitar que el contenedor interfiera con el hover */
+
+    .arrow {
+      border: none;
+      font-size: 3rem;
+      color: white;
+      pointer-events: auto; /* Hacer clickeables las flechas */
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+    .arrow-right
+    {
+      right: 10px;
+    }
+  }
+}
+
 
   
 
