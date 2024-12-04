@@ -12,6 +12,7 @@
       <img src="{% static 'images/banner-piscina-chukum.jpeg' %}" alt="banner-chukum" />
     </figure>
   </div>
+
   <div class="chukum-info">
     <div class="chukum-title">
         <h3>[ MI CHUKUM ]</h3>
@@ -53,38 +54,40 @@
 
   <div class="shop-space">
     {% for producto in productos %}
-      <a
-        class="wow animate__animated animate__fadeIn"
-        href="{{ producto.imagen_caratula.url }}"
-        data-fancybox="products-{{ producto.id }}"
-        data-caption="{{ producto.nombre }} - ${{ producto.precio }}"
-      >
-        <figure>
-          <img src="{{ producto.imagen_caratula.url }}" alt="{{ producto.nombre }}" />
-          <figcaption>{{ producto.nombre }}</figcaption>
-        </figure>
-      </a>
+      <article class="product">
+        <a
+          class="wow animate__animated animate__fadeIn"
+          href="{{ producto.imagen_caratula.url }}"
+          data-fancybox="products-{{ producto.id }}"
+          data-caption="{{ producto.nombre }} - ${{ producto.precio }}"
+        >
+          <figure>
+            <img src="{{ producto.imagen_caratula.url }}" alt="{{ producto.nombre }}" />
+            <figcaption>{{ producto.nombre }}</figcaption>
+          </figure>
+        </a>
 
-      <!-- Información adicional del producto -->
-      <div class="product-info">
-        <p><strong>Precio:</strong> ${{ producto.precio }}</p>
-        <p><strong>Stock:</strong> {{ producto.stock }} unidades</p>
-        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
-      </div>
+        <!-- Información adicional del producto -->
+        <div class="product-info">
+          <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+          <p><strong>Stock:</strong> {{ producto.stock }} unidades</p>
+          <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+        </div>
 
-      {% for proyecto in producto.proyectos.all %}
-        {% if proyecto.producto_asociado == producto %}
-          <!-- Imágenes adicionales del proyecto asociado al producto -->
-          <a
-            href="{{ proyecto.caratula.url }}"
-            data-fancybox="products-{{ proyecto.id }}"
-            data-caption="Proyecto elaborado con {{ producto.nombre }} - {{ proyecto.nombre }}"
-            style="display: none"
-          >
-            <img src="{{ proyecto.caratula.url }}" alt="{{ proyecto.nombre }}" />
-          </a>
-        {% endif %}
-      {% endfor %}
+        {% for proyecto in producto.proyectos.all %}
+          {% if proyecto.producto_asociado == producto %}
+            <!-- Imágenes adicionales del proyecto asociado al producto -->
+            <a
+              href="{{ proyecto.caratula.url }}"
+              data-fancybox="products-{{ proyecto.id }}"
+              data-caption="Proyecto elaborado con {{ producto.nombre }} - {{ proyecto.nombre }}"
+              style="display: none"
+            >
+              <img src="{{ proyecto.caratula.url }}" alt="{{ proyecto.nombre }}" />
+            </a>
+          {% endif %}
+        {% endfor %}
+      </article>
     {% endfor %}
   </div>
 </section>
@@ -103,11 +106,7 @@
         Aporta elegancia y sofisticación con su textura natural.
       </p>
     </div>
-    <div class="benefit">
-      <h3>Respetuoso con el medio ambiente</h3>
-      <p>
-        Material ecológico que fomenta la conservación ambiental.
-      </div>
+
     <div class="benefit">
       <h3>Versatilidad de uso</h3>
       <p>

@@ -950,17 +950,14 @@ footer {
   }
 }
   
-  
-  
-  
 
 /* VIEW CHUKUM*/
 #chukum {
   display: flex;
-  gap: 20px;
+  margin: 50px 0 0 0;
 
   .chukum-banner {
-    width: 60%;
+    width: 50%;
     figure {
       width: 100%;
       height: 700px;
@@ -977,13 +974,13 @@ footer {
   }
 
   .chukum-info {
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;  
-    gap: 30px;
-    padding: 0px 40px;
+    gap: 20px;
+    padding: 30px;
 
     .chukum-title {
       h2 {
@@ -1057,22 +1054,15 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 3rem 0;
-  width: 90%;
+  width: 100%;
   background-color: #f9f9f9; /* Fondo sutil para el área de productos */
-  border-radius: 10px; /* Bordes redondeados para un toque suave */
 
-  .product-item {
-    width: 250px; /* Ancho de cada producto */
-    flex-shrink: 0; /* No permite que el producto se encoja */
-    text-align: center;
-  }
   .title-shop {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3rem; /* Espacio debajo del título */
-
+    margin-bottom: 2.5rem; /* Espacio debajo del título */
 
     h2 {
       font-size: 2rem;
@@ -1088,85 +1078,89 @@ footer {
   }
 
   .shop-space {
-    padding: 20px 0;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
     
-    figure {
+    .product {
       width: 250px;
-      height: 250px;
-      position: relative;
-      display: inline-block;
-      overflow: hidden;
-      border-radius: 8px; /* Bordes redondeados en cada producto */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-  
-      img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        border-radius: 8px;
-        transition: transform 0.3s ease; /* Agrega un zoom ligero en hover */
-      }
 
-      figcaption {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+      figure {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 5px; /* Bordes redondeados en cada producto */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          border-radius: 8px;
+          transition: transform 0.3s ease; /* Agrega un zoom ligero en hover */
+        }
+  
+        figcaption {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 10px;
+          background: rgba(0, 0, 0, 0.7);
+          color: #fff;
+          text-align: center;
+          font-size: 14px;
+          opacity: 0;
+          transform: translateY(100%);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+      }
+  
+      figure:hover {
+        transform: scale(1.05); /* Zoom leve al hacer hover */
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Aumento de sombra al hacer hover */
+      }
+  
+      figure:hover figcaption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      figure:hover img {
+        transform: scale(1.1);
+      }
+  
+          /* Estilo adicional para la información del producto */
+      .product-info {
         width: 100%;
         padding: 10px;
-        background: rgba(0, 0, 0, 0.7);
-        color: #fff;
-        text-align: center;
-        font-size: 14px;
-        opacity: 0;
-        transform: translateY(100%);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        background-color: #fff;
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+  
+        p {
+          font-size: 14px;
+          color: #333;
+          margin: 5px 0;
+        }
+  
+        strong {
+          color: #444;
+          font-weight: 600;
+        }
       }
     }
-
-    figure:hover {
-      transform: scale(1.05); /* Zoom leve al hacer hover */
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Aumento de sombra al hacer hover */
-    }
-
-    figure:hover figcaption {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    figure:hover img {
-      transform: scale(1.1);
-    }
-
-        /* Estilo adicional para la información del producto */
-    .product-info {
-      width: 250px;
-      padding: 10px;
-      background-color: #fff;
-      margin-top: 15px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .product-info p {
-      font-size: 14px;
-      color: #333;
-      margin: 5px 0;
-    }
-
-    .product-info strong {
-      color: #444;
-      font-weight: 600;
-    }
-
+    
     /* Agregar hover en la información del producto */
     .product-info:hover {
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
@@ -1186,6 +1180,7 @@ footer {
     justify-content: space-evenly;
     width: 100%;
     padding: 10px;
+    gap: 20px;
 
     .benefit {
       text-align: center;
@@ -1203,14 +1198,11 @@ footer {
 }
 
 #carousel {
-  width: 90%;
+  width: 100%;
   margin: auto;
   padding: 0px;
   gap: 0;
 
-  .slide-container {
-    gap: 0;
-  }
   .slide {
     padding: 20px 0;
 
@@ -1222,8 +1214,7 @@ footer {
       display: inline-block;
       overflow: hidden;
       position: relative;
-
-            
+  
       img{
         width: 100%;
         height: 100%;
