@@ -6,11 +6,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/tablet.css' %}" />
     <link rel="stylesheet" href="{% static 'css/movil.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tablet.css' %}" />
     <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
     <link rel="stylesheet" href="{% static 'css/fancybox.css' %}" />
     <link rel="stylesheet" href="{% static 'css/carrousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/splide-core.min.css' %}" />
 
     <script
       src="https://kit.fontawesome.com/138f20aa8b.js"
@@ -19,6 +20,8 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{% static 'js/responsiveslides.js' %}"></script>
     <script src="{% static 'js/fancybox.js' %}"></script>
+    <script src="{% static 'js/splide.min.js' %}"></script>
+
     <title>{% block title %}Cipeninsular{% endblock %}</title>
   </head>
   <body>
@@ -217,5 +220,25 @@
       });
     </script>
     <script src="{% static 'js/carrousel.js' %}"></script>
+
+    <script>
+      new Splide(".splide").mount();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var splide = new Splide(".splide", {
+          type: "loop", // Opcional: Cambia según tus necesidades.
+          arrows: true, // Asegúrate de que las flechas estén habilitadas.
+          autoplay: true, // Activa el desplazamiento automático.
+          speed: 800, // Duración de la animación de transición (en milisegundos, aquí 0.8 segundos).
+          interval: 3000, // Intervalo entre desplazamientos (en milisegundos, aquí 3 segundos).
+          easing: "ease-in-out", // Suaviza la transición.
+          pauseOnHover: true, // Pausa el autoplay cuando el mouse está sobre el carrusel.
+          pauseOnFocus: true, // Pausa el autoplay cuando el carrusel está enfocado.
+        });
+        splide.mount();
+      });
+    </script>
   </body>
 </html>

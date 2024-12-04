@@ -1,13 +1,14 @@
 from django.shortcuts import render
-from .models import Servicio, Slide, Project, Category, Producto
+from .models import Servicio, Slide, Project, Category, Producto, Empleado
 
 # Create your views here.
 def index_view(request):
     servicios = Servicio.objects.all()  # Obtienes todos los servicios
     slides = Slide.objects.filter(estatus=True).order_by('orden')  # Obtienes los slides activos y los ordenas
     proyectos = Project.objects.prefetch_related('images').all()
+    empleados = Empleado.objects.all()
 
-    return render(request, 'index.html', {'servicios': servicios, 'slides': slides, 'proyectos': proyectos})
+    return render(request, 'index.html', {'servicios': servicios, 'slides': slides, 'proyectos': proyectos, 'empleados': empleados})
 
 def chukum_view(request):
     productos = Producto.objects.all()  # Asegúrate de que esté obteniendo todos los productos

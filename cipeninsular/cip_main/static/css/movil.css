@@ -142,6 +142,53 @@
             }
         }
     }
+
+    #company {
+        padding: 1rem .5rem;
+
+        h2{
+            font-size: 1rem;
+        }
+        .values{
+            width: 60%;
+
+            .progress-bars {
+                padding: 20px 0px;
+            }
+        }
+      
+        .team {
+          width: 40%;
+          text-align: center;
+      
+          .splide {
+            .splide__slide {
+          
+              figure {
+                width: 100px;
+                height: 100px;
+              }
+            }
+        
+            .splide__arrows {
+              margin: auto;
+              padding: 15px 0 0 0;
+              display: flex;
+              gap: 10px;
+        
+              .splide__arrow {
+                padding: 5px 10px;
+                background-color: var(--yellow-secondary);
+                border: none;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+    }
+
+
+
     .contact-text {
         display: none; /* Oculta el texto */
       }

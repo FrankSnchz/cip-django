@@ -96,7 +96,22 @@
             transition: none; /* Elimina la animación en móviles */
         }
     }
-    
+
+    #company {
+        padding: 1rem;
+      
+        .values{
+          width: 60%;
+
+        }
+      
+        .team {
+          width: 40%;
+      
+        }
+    }
+
+
     #partners {
         display: flex;
         flex-direction: column;

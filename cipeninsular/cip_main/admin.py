@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Servicio, Slide, Project, ProjectImage, Category, Producto
+from .models import Servicio, Slide, Project, ProjectImage, Category, Producto, Empleado
 
 # Register your models here.
 @admin.register(Servicio)
@@ -59,3 +59,7 @@ class ProductoAdmin(admin.ModelAdmin):
     def marcar_como_destacado(self, request, queryset):
         queryset.update(destacado=True)
     marcar_como_destacado.short_description = "Marcar productos seleccionados como destacados"
+    
+@admin.register(Empleado)
+class EmpleadoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'posicion')
