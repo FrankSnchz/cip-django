@@ -1,0 +1,160 @@
+{% extends 'base.html' %} 
+
+{% block title %}Cipeninsular{% endblock %} 
+{% block content %}
+
+<div class="container">
+    <!-- Barra lateral -->
+    <aside class="sidebar">
+      <div class="services-list">
+        <h3>Lista de Servicios</h3>
+        <ul class="menu-s">
+          <!-- Arquitectura -->
+          <li class="menu-item-s">
+            <span>Arquitectura</span>
+            <ul class="submenu-s">
+              <li>Carpintería en General</li>
+              <li>Diseño de Exteriores</li>
+              <li>Diseño de Interiores</li>
+              <li>Diseños de Acabados de Interior de Chukum</li>
+              <li>Diseños de Piscinas</li>
+              <li>Escarpas y Estacionamientos</li>
+              <li>Pintura en General</li>
+              <li>Jardinería y Paisajismo</li>
+            </ul>
+          </li>
+          <!-- Topografía -->
+          <li class="menu-item-s">
+            <span>Topografía</span>
+            <ul class="submenu-s">
+              <li>Proyectos de Carreteras</li>
+              <li>Señalamiento Vial</li>
+              <li>Escarpas y Estacionamientos</li>
+            </ul>
+          </li>
+          <!-- Ingeniería Civil -->
+          <li class="menu-item-s">
+            <span>Ingeniería Civil</span>
+            <ul class="submenu-s">
+              <li>Construcción en General</li>
+              <li>Pavimentaciones</li>
+              <li>Pisos de Molde</li>
+              <li>Pisos Industriales Epóxicos</li>
+              <li>Terracería</li>
+              <li>Plomería Hidráulica y Sanitaria</li>
+              <li>Herrería Industrial</li>
+              <li>Tornería</li>
+              <li>Electricidad Bifásica</li>
+              <li>Electricidad Trifásica</li>
+              <li>Electricidad Correctiva</li>
+              <li>Electricidad Preventiva</li>
+            </ul>
+          </li>
+          <!-- Estudio de Impacto Ambiental -->
+          <li class="menu-item-s">
+            <span>Estudio de Impacto Ambiental</span>
+            <ul class="submenu-s">
+              <li>Estudio de Impacto Ambiental</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  
+    <!-- Contenido principal -->
+    <main class="main-content">
+      <h1>Transformamos tus ideas en espacios funcionales y estéticamente agradables.
+    </h1>
+      <p>
+        En nuestra empresa nos especializamos en ofrecer soluciones integrales en arquitectura, ingeniería civil, topografía y más. Con un enfoque en la calidad, profesionalismo y experiencia, nos aseguramos de que cada proyecto sea único y cumpla con tus expectativas. Ya sea que necesites diseño de interiores, proyectos de construcción, o un estudio de impacto ambiental, nuestro equipo está preparado para ofrecerte el mejor servicio. ¡Contáctanos hoy y juntos haremos realidad tus proyectos!
+      </p>
+  
+      <div class="images-section">
+        <img src="../../media/projects/images/CASTILLOS_6.webp" alt="Service 1">
+        <img src="../../media/projects/images/CERRE_CADENA.webp" alt="Service 2">
+      </div>
+  
+      <h2>¿Por qué elegir este servicio?</h2>
+      <p>
+        Ofrecemos un enfoque integral en cada proyecto, combinando experiencia en arquitectura, ingeniería y estudios de impacto ambiental. Nos comprometemos a entregar resultados excepcionales, garantizando calidad, precisión y sostenibilidad en cada etapa. Confía en nosotros para hacer realidad tus ideas con un servicio confiable y profesional.
+      </p>
+  
+      <h2>Garantizamos un trabajo de calidad</h2>
+      <img src="https://via.placeholder.com/600x300" alt="Delivery Image">
+      <p>
+        Nos aseguramos de que cada proyecto sea ejecutado con los más altos estándares de calidad. Nuestro equipo altamente capacitado trabaja con dedicación y precisión, garantizando resultados duraderos y satisfactorios. Tu satisfacción es nuestra prioridad y nos comprometemos a superar tus expectativas en cada detalle.
+      </p>
+    </main>
+  </div>
+
+  <div class="container-s">
+    <div class="feature-s">
+      <div class="icon-s">
+        <i class="fa-brands fa-codepen"></i>
+      </div>
+      <div class="text-s">
+        <h3>Enfoque en el cliente</h3>
+        <p>
+          Los clientes nos eligen por la simplicidad de la comunicación y por nuestra capacidad de mostrarles una visión clara de lo que recibirán al final.
+        </p>
+      </div>
+    </div>
+  
+    <div class="feature-s">
+      <div class="icon-s">
+        <i class="fa-solid fa-hand-point-up"></i>
+      </div>
+      <div class="text-s">
+        <h3>Profesionalismo</h3>
+        <p>
+          Llevamos a cabo un proceso integral de documentación de proyectos que abarca desde el boceto inicial hasta el proyecto de diseño y la documentación de trabajo final.
+        </p>
+      </div>
+    </div>
+  
+    <div class="feature-s">
+      <div class="icon-s">
+        <i class="fa-solid fa-explosion"></i>
+      </div>
+      <div class="text-s">
+        <h3>Experiencia múltiple</h3>
+        <p>
+          Ofrecemos una diversidad de servicios que abarcan múltiples estilos de diseño, y nos especializamos en proyectos tanto comerciales como residenciales.
+        </p>
+      </div>
+    </div>
+  
+    <div class="feature-s">
+      <div class="icon-s">
+        <i class="fa-solid fa-user-astronaut"></i>
+      </div>
+      <div class="text-s">
+        <h3>Creación de espacios</h3>
+        <p>
+          Diseñamos entornos de trabajo y ocio que combinan atractivo y comodidad. Nuestra labor se centra en la elección meticulosa de unidades, materiales y fabricantes para garantizar que cada espacio que creamos sea tanto estéticamente agradable como funcional.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    // Función para manejar la apertura y cierre de submenús
+    document.querySelectorAll('.menu-item-s span').forEach(item => {
+      item.addEventListener('click', function() {
+        // Primero, cerrar todos los submenús abiertos
+        document.querySelectorAll('.submenu-s.visible').forEach(submenu => {
+          submenu.classList.remove('visible');
+        });
+  
+        // Toggle (abrir/cerrar) el submenú del item seleccionado
+        const submenu = this.nextElementSibling;
+        if (submenu && submenu.classList.contains('submenu-s')) {
+          submenu.classList.toggle('visible');
+        }
+      });
+    });
+  </script>
+  
+  
+{% endblock %}
