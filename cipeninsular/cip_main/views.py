@@ -39,3 +39,14 @@ def chukum_view(request):
         'slides': slides,
         'productos-chukum': productos_chukum,
     })
+
+def servicios_view(request):
+    # Puedes añadir datos al contexto si es necesario.
+    context = {
+        'titulo': 'Nuestros Servicios',
+        'descripcion': 'Descubre los servicios que ofrecemos.',
+    }
+    
+    
+    return render(request, 'services.html', {      
+                  })

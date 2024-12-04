@@ -1285,8 +1285,144 @@ footer {
 }
 
 
-  
+/* VENTANA SERVICIOS */
 
+/* Contenedor principal */
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  
-  
+/* Barra lateral */
+.sidebar {
+  width: 25%;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.sidebar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+/* Menú */
+.menu-s {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-item-s {
+  margin-bottom: 10px;
+}
+
+.menu-item-s span {
+  display: block;
+  padding: 10px;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+.menu-item-s span:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Submenú oculto */
+.submenu-s {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none; /* Inicialmente oculto */
+  transition: display 0.3s ease; /* Transición suave para abrir/cerrar el submenú */
+}
+
+.submenu-s.visible {
+  display: block; /* Cuando tiene la clase visible, se muestra */
+}
+
+.submenu-s li {
+  padding: 10px;
+  padding-left: 20px;
+  background-color: #e9ecef;
+  border-left: 3px solid #007bff;
+  border-bottom: 1px solid #ddd;
+}
+
+.submenu-s li:hover {
+  background-color: #d6e0f0;
+}
+
+/* Contenido principal */
+.main-content {
+  width: 75%;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.main-content h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.images-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.images-section img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+.container-s {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sección de características */
+.feature-s {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.feature-s:hover {
+  transform: translateY(-10px);
+}
+
+.icon-s i {
+  font-size: 50px;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.text-s h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.text-s p {
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.5;
+}
