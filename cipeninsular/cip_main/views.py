@@ -53,10 +53,15 @@ def services_view(request):
         slides = Slide.objects.filter(servicio=subservicio)  # Filtramos por servicio
         print(f"Slides asociados al subservicio {subservicio.titulo}: {slides}")
 
-        $$##FALTA AGREGAR COSAS
+        ##FALTA AGREGAR COSAS
     
     return render(request, 'services.html', {
         'servicios':servicios, 
         'subservicio':subservicio, 
         'slides':slides
     })
+
+def generalservices_view(request):
+    servicios = Servicio.objects.all()  # Obtienes todos los servicios
+
+    return render(request, 'general-services.html', {'servicios': servicios,})

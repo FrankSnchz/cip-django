@@ -1,3 +1,41 @@
 # Archivos de entorno virtual
 /env/
 /venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+*.eggs/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+staticfiles/
+media/
+
+db.sqlite3
+db.sqlite3-journal
+
+# If using MySQL
+*.sql
+
+# If using PostgreSQL
+*.pgdata
+
+# VS Code settings
+.vscode/
+

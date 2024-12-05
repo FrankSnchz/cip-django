@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.index_view, name='inicio'),  # Ruta raíz que muestra tu HTML
     path('chukum/', views.chukum_view, name='chukum'),
     path('servicios/', views.services_view, name='servicios'),
+    path('serviciosgenerales/', views.generalservices_view, name='servicios generales'),
 ]

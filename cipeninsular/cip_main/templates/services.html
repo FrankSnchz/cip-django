@@ -1,113 +1,127 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% block title %}Servicios{% endblock %} 
+{% block title %}Servicios{% endblock %}
 
 {% block slides %}
-  {% for slide in slides %}
-  <li><img src="{{ slide.imagen.url }}" alt="" /></li>
-  {% endfor %}
+{% for slide in slides %}
+<li><img src="{{ slide.imagen.url }}" alt="" /></li>
+{% endfor %}
 {% endblock %}
 
 {% block content %}
 
 <div id="services">
-    <!-- Barra lateral -->
-    <aside class="sidebar">
-      <div class="services-list">
-        <h3>Nuestros servicios</h3>
-        <ul class="menu-services">
-          <!-- Servicio -->
-          {% for servicio in servicios %}
-          <li class="item-service">
-            <p>{{ servicio.titulo }}</p>
+  <!-- Barra lateral -->
+  <aside class="sidebar">
+    <div class="services-list">
+      <h3>Nuestros servicios</h3>
+      <ul class="menu-services">
+        <!-- Servicio -->
+        {% for servicio in servicios %}
+        <li class="item-service">
+          <p>{{ servicio.titulo }}</p>
 
-            {% if servicio.subservicios.all %}
-            <ul class="item-subservice">
-              <!-- Subservicio -->
-              {% for subservicio in servicio.subservicios.all %}
-              <li><a href="?servicio_id={{ subservicio.id }}">{{ subservicio.titulo }}</a></li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </aside>
-  
-    <!-- Contenido principal -->
-    <main class="main-content">
-      <h1>Transformamos tus ideas en espacios funcionales y estéticamente agradables.
+          {% if servicio.subservicios.all %}
+          <ul class="item-subservice">
+            <!-- Subservicio -->
+            {% for subservicio in servicio.subservicios.all %}
+            <li><a href="?servicio_id={{ subservicio.id }}">{{ subservicio.titulo }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <h1>Transformamos tus ideas en espacios funcionales y estéticamente agradables.
     </h1>
+    <p>
+      En nuestra empresa nos especializamos en ofrecer soluciones integrales en arquitectura, ingeniería civil,
+      topografía y más. Con un enfoque en la calidad, profesionalismo y experiencia, nos aseguramos de que cada proyecto
+      sea único y cumpla con tus expectativas. Ya sea que necesites diseño de interiores, proyectos de construcción, o
+      un estudio de impacto ambiental, nuestro equipo está preparado para ofrecerte el mejor servicio. ¡Contáctanos hoy
+      y juntos haremos realidad tus proyectos!
+    </p>
+
+    <div class="images-section">
+      <img src="../../media/projects/images/CASTILLOS_6.webp" alt="Service 1">
+      <img src="../../media/projects/images/CERRE_CADENA.webp" alt="Service 2">
+    </div>
+
+    <h2>¿Por qué elegir este servicio?</h2>
+    <p>
+      Ofrecemos un enfoque integral en cada proyecto, combinando experiencia en arquitectura, ingeniería y estudios de
+      impacto ambiental. Nos comprometemos a entregar resultados excepcionales, garantizando calidad, precisión y
+      sostenibilidad en cada etapa. Confía en nosotros para hacer realidad tus ideas con un servicio confiable y
+      profesional.
+    </p>
+
+    <h2>Garantizamos un trabajo de calidad</h2>
+    <img src="https://via.placeholder.com/600x300" alt="Delivery Image">
+    <p>
+      Nos aseguramos de que cada proyecto sea ejecutado con los más altos estándares de calidad. Nuestro equipo
+      altamente capacitado trabaja con dedicación y precisión, garantizando resultados duraderos y satisfactorios. Tu
+      satisfacción es nuestra prioridad y nos comprometemos a superar tus expectativas en cada detalle.
+    </p>
+  </main>
+</div>
+
+<div class="container-s">
+  <div class="feature-s">
+    <div class="icon-s">
+      <i class="fa-brands fa-codepen"></i>
+    </div>
+    <div class="text-s">
+      <h3>Enfoque en el cliente</h3>
       <p>
-        En nuestra empresa nos especializamos en ofrecer soluciones integrales en arquitectura, ingeniería civil, topografía y más. Con un enfoque en la calidad, profesionalismo y experiencia, nos aseguramos de que cada proyecto sea único y cumpla con tus expectativas. Ya sea que necesites diseño de interiores, proyectos de construcción, o un estudio de impacto ambiental, nuestro equipo está preparado para ofrecerte el mejor servicio. ¡Contáctanos hoy y juntos haremos realidad tus proyectos!
+        Los clientes nos eligen por la simplicidad de la comunicación y por nuestra capacidad de mostrarles una visión
+        clara de lo que recibirán al final.
       </p>
-  
-      <div class="images-section">
-        <img src="../../media/projects/images/CASTILLOS_6.webp" alt="Service 1">
-        <img src="../../media/projects/images/CERRE_CADENA.webp" alt="Service 2">
-      </div>
-  
-      <h2>¿Por qué elegir este servicio?</h2>
-      <p>
-        Ofrecemos un enfoque integral en cada proyecto, combinando experiencia en arquitectura, ingeniería y estudios de impacto ambiental. Nos comprometemos a entregar resultados excepcionales, garantizando calidad, precisión y sostenibilidad en cada etapa. Confía en nosotros para hacer realidad tus ideas con un servicio confiable y profesional.
-      </p>
-  
-      <h2>Garantizamos un trabajo de calidad</h2>
-      <img src="https://via.placeholder.com/600x300" alt="Delivery Image">
-      <p>
-        Nos aseguramos de que cada proyecto sea ejecutado con los más altos estándares de calidad. Nuestro equipo altamente capacitado trabaja con dedicación y precisión, garantizando resultados duraderos y satisfactorios. Tu satisfacción es nuestra prioridad y nos comprometemos a superar tus expectativas en cada detalle.
-      </p>
-    </main>
+    </div>
   </div>
 
-  <div class="container-s">
-    <div class="feature-s">
-      <div class="icon-s">
-        <i class="fa-brands fa-codepen"></i>
-      </div>
-      <div class="text-s">
-        <h3>Enfoque en el cliente</h3>
-        <p>
-          Los clientes nos eligen por la simplicidad de la comunicación y por nuestra capacidad de mostrarles una visión clara de lo que recibirán al final.
-        </p>
-      </div>
+  <div class="feature-s">
+    <div class="icon-s">
+      <i class="fa-solid fa-hand-point-up"></i>
     </div>
-  
-    <div class="feature-s">
-      <div class="icon-s">
-        <i class="fa-solid fa-hand-point-up"></i>
-      </div>
-      <div class="text-s">
-        <h3>Profesionalismo</h3>
-        <p>
-          Llevamos a cabo un proceso integral de documentación de proyectos que abarca desde el boceto inicial hasta el proyecto de diseño y la documentación de trabajo final.
-        </p>
-      </div>
+    <div class="text-s">
+      <h3>Profesionalismo</h3>
+      <p>
+        Llevamos a cabo un proceso integral de documentación de proyectos que abarca desde el boceto inicial hasta el
+        proyecto de diseño y la documentación de trabajo final.
+      </p>
     </div>
-  
-    <div class="feature-s">
-      <div class="icon-s">
-        <i class="fa-solid fa-explosion"></i>
-      </div>
-      <div class="text-s">
-        <h3>Experiencia múltiple</h3>
-        <p>
-          Ofrecemos una diversidad de servicios que abarcan múltiples estilos de diseño, y nos especializamos en proyectos tanto comerciales como residenciales.
-        </p>
-      </div>
+  </div>
+
+  <div class="feature-s">
+    <div class="icon-s">
+      <i class="fa-solid fa-explosion"></i>
     </div>
-  
-    <div class="feature-s">
-      <div class="icon-s">
-        <i class="fa-solid fa-user-astronaut"></i>
-      </div>
-      <div class="text-s">
-        <h3>Creación de espacios</h3>
-        <p>
-          Diseñamos entornos de trabajo y ocio que combinan atractivo y comodidad. Nuestra labor se centra en la elección meticulosa de unidades, materiales y fabricantes para garantizar que cada espacio que creamos sea tanto estéticamente agradable como funcional.
-        </p>
-      </div>
+    <div class="text-s">
+      <h3>Experiencia múltiple</h3>
+      <p>
+        Ofrecemos una diversidad de servicios que abarcan múltiples estilos de diseño, y nos especializamos en proyectos
+        tanto comerciales como residenciales.
+      </p>
     </div>
-  </div> 
+  </div>
+
+  <div class="feature-s">
+    <div class="icon-s">
+      <i class="fa-solid fa-user-astronaut"></i>
+    </div>
+    <div class="text-s">
+      <h3>Creación de espacios</h3>
+      <p>
+        Diseñamos entornos de trabajo y ocio que combinan atractivo y comodidad. Nuestra labor se centra en la elección
+        meticulosa de unidades, materiales y fabricantes para garantizar que cada espacio que creamos sea tanto
+        estéticamente agradable como funcional.
+      </p>
+    </div>
+  </div>
+</div>
 {% endblock %}

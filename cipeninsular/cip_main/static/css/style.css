@@ -1261,7 +1261,6 @@ footer {
 
   /* Barra lateral */
   .sidebar {
-    border: 1px red solid;
     background-color: #fff;
     padding: 20px;
     width: 25%;
@@ -1319,7 +1318,6 @@ footer {
 
   /* Contenido principal */
   .main-content {
-    border: 1px red solid;
     padding: 20px;
     background-color: #fff;
     width: 75%;
@@ -1391,4 +1389,375 @@ footer {
 }
 }
 
+/* SERVICIOS GENERALES *REVISAR* */
 
+.hero-gs-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('../../../media/servicios/WhatsApp_Image_2024-11-27_at_6.29.35_PM_1.jpeg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.hero-gs-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 50, 0.5);
+}
+
+.hero-gs-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-gs-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-gs-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.button-gs-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.button-gs {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.button-gs-discover {
+  background-color: var(--blue-primary);
+}
+
+.button-gs-contact {
+  background-color: var(--yellow-primary);
+}
+
+.button-gs-discover:hover {
+  background-color: var(--blue-secondary);
+}
+
+.button-gs-contact:hover {
+  background-color: var(--yellow-secondary);
+}
+
+/* nuestros servicios *servicios generales* */
+
+.services-gs-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.services-gs-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.services-gs-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.services-gs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.service-gs-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+}
+
+.service-gs-card img {
+  width: 100%;
+  height: auto;
+}
+
+.service-gs-icon {
+  margin: -1.5rem auto 1rem;
+  background-color: #007bff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  z-index: 1000;
+}
+
+.service-gs-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-gs-card p {
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0 1rem 1.5rem;
+}
+
+/* nuestros proyectos *servicios generales* */
+
+.projects-gs-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.projects-gs-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.projects-gs-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.projects-gs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.project-gs-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-gs-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-gs-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-gs-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 123, 255, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-gs-card:hover .project-gs-overlay {
+  opacity: 1;
+}
+
+.project-gs-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-gs-overlay button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #007bff;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-gs-overlay button:hover {
+  background-color: #f8f9fa;
+}
+
+/* testimoniales *servicios generales* */
+
+.testimonials-gs-section {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.testimonials-gs-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonials-gs-section p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
+}
+
+.testimonials-gs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.testimonial-gs-card {
+  background-color: white;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.testimonial-gs-card p {
+  font-size: 0.95rem;
+  margin: 0 0 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.testimonial-gs-card .quote-gs {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.testimonial-gs-client {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.client-gs-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #007bff;
+}
+
+.client-gs-image img {
+  width: 100%;
+  height: auto;
+}
+
+.client-gs-info {
+  text-align: left;
+}
+
+.client-gs-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.client-gs-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.client-gs-stars {
+  margin-top: 0.5rem;
+  color: #f4c150;
+}
+
+/* lo que ofrecemos *servicios generales* */
+
+.offer-gs-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  gap: 2rem;
+  background-color: #ffffff;
+}
+
+.offer-gs-image {
+  flex: 1 1 45%;
+  max-width: 45%;
+}
+
+.offer-gs-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.offer-gs-content {
+  flex: 1 1 45%;
+  max-width: 45%;
+  text-align: left;
+}
+
+.offer-gs-content h3 {
+  font-size: 1.25rem;
+  color: var(--blue-primary);
+  margin-bottom: 0.5rem;
+}
+
+.offer-gs-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.offer-gs-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.offer-gs-item {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.offer-gs-icon {
+  font-size: 1.5rem;
+  color: #e74c3c;
+  margin-right: 1rem;
+}
+
+.offer-gs-text {
+  font-size: 1rem;
+  color: #555;
+}
+/* ------------fin de servicios generales---------------- */
