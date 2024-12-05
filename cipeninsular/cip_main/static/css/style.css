@@ -26,40 +26,16 @@ html
   scroll-behavior: smooth;
 }
 
-.rslides-services {
-  position: relative;
-  list-style: none;
-  overflow: hidden;
-  width: 100%;    
-  padding: 0;
-  margin: auto;
-  height: 0;
-}
-  
-.rslides-services li {
-  backface-visibility: hidden;
-  position: absolute;
-  display: none;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
+.rslides-height{
+  height: 650px;
 }
 
-.rslides-services li:first-child {
-  position: relative;
-  display: block;
-  float: left;
+.rslides-servicios-height{
+  height: 400px;
 }
 
-.rslides-services img {
-  display: block;
-  height: 100%;
-  float: left;
-  width: 100%;
-  border: 0;
-  object-fit: cover;
-  position: relative;
+.rslides-chukum-height{
+  height: 0px;
 }
 
 .rslides {
@@ -69,7 +45,6 @@ html
   width: 100%;    
   padding: 0;
   margin: auto;
-  height: 650px;
 }
 
 .rslides li {
@@ -269,9 +244,8 @@ html
 }
 
 /* services */
-#services {
+#our-services {
   background-color: rgba(0, 0, 0, 0.1); /* Color negro con opacidad */
-
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
@@ -1279,79 +1253,77 @@ footer {
 /* VENTANA SERVICIOS */
 
 /* Contenedor principal */
-.container {
+#services {
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-}
+  margin-top: 50px;
 
-/* Barra lateral */
-.sidebar {
-  width: 25%;
-  background-color: #fff;
-  padding: 20px;
-}
+  /* Barra lateral */
+  .sidebar {
+    border: 1px red solid;
+    background-color: #fff;
+    padding: 20px;
+    width: 25%;
 
-.sidebar h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-}
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
 
-/* Menú */
-.menu-s {
-  list-style: none;
-  padding: 0;
-}
+        /* Menú */
+    .menu-services {
+      list-style: none;
+      padding: 0;
 
-.menu-item-s {
-  margin-bottom: 10px;
-}
+      .item-service {
+        margin-bottom: 10px;
 
-.menu-item-s span {
-  display: block;
-  padding: 10px;
-  background-color: #f4f4f4;
-  cursor: pointer;
-  border: 1px solid #ddd;
-}
+        p {
+          display: block;
+          padding: 10px;
+          background-color: #f4f4f4;
+          cursor: pointer;
+          border: 1px solid #ddd;
+        }
 
-.menu-item-s span:hover {
-  background-color: #007bff;
-  color: white;
-}
+        p:hover {
+          background-color: #007bff;
+          color: white;
+        }
 
-/* Submenú oculto */
-.submenu-s {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: none; /* Inicialmente oculto */
-  transition: display 0.3s ease; /* Transición suave para abrir/cerrar el submenú */
-}
+        .item-subservice {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: none; /* Inicialmente oculto */
+          transition: display 0.3s ease; /* Transición suave para abrir/cerrar el submenú */
 
-.submenu-s.visible {
-  display: block; /* Cuando tiene la clase visible, se muestra */
-}
+          li {
+            padding: 10px;
+            padding-left: 20px;
+            background-color: #e9ecef;
+            border-left: 3px solid #007bff;
+            border-bottom: 1px solid #ddd;
+          }
+          li:hover {
+            background-color: #d6e0f0;
+          }
+        }
+        .item-subservice.visible {
+          display: block; /* Cuando tiene la clase visible, se muestra */
+        }
+      }
+    }
+  }
 
-.submenu-s li {
-  padding: 10px;
-  padding-left: 20px;
-  background-color: #e9ecef;
-  border-left: 3px solid #007bff;
-  border-bottom: 1px solid #ddd;
-}
-
-.submenu-s li:hover {
-  background-color: #d6e0f0;
-}
-
-/* Contenido principal */
-.main-content {
-  width: 75%;
-  padding: 20px;
-  background-color: #fff;
-}
+  /* Contenido principal */
+  .main-content {
+    border: 1px red solid;
+    padding: 20px;
+    background-color: #fff;
+    width: 75%;
+  }
 
 .main-content h1 {
   font-size: 2rem;
@@ -1417,3 +1389,6 @@ footer {
   color: #6c757d;
   line-height: 1.5;
 }
+}
+
+

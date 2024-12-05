@@ -5,6 +5,13 @@ class Servicio(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField()
     imagen = models.ImageField(upload_to='servicios/')
+    parent = models.ForeignKey(
+        'self',  # Relación a sí mismo
+        on_delete=models.CASCADE,  # Si eliminas un servicio, se eliminan los subservicios
+        related_name='subservicios',  # Nombre de la relación inversa
+        blank=True,  # Permitir que sea nulo (para servicios principales)
+        null=True
+    )
     
     def __str__(self):
         return self.titulo
@@ -15,6 +22,16 @@ class Slide(models.Model):
     descripcion = models.TextField(blank=True, null=True, verbose_name="Descripción")
     orden = models.PositiveIntegerField(default=1, verbose_name="Orden")
     estatus = models.BooleanField(default=True, verbose_name="Activo")
+    
+    # Relación con Servicio (para asignar un subservicio o servicio principal)
+    servicio = models.ForeignKey(
+        Servicio, 
+        related_name='slides',  # Relación inversa desde Servicio a Slide
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True,
+        verbose_name="Servicio asociado"
+    )
 
     class Meta:
         ordering = ['orden']

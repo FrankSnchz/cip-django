@@ -1,10 +1,17 @@
 {% extends 'base.html' %} 
 
-{% block title %}Cipeninsular{% endblock %} 
+{% block title %}Cipeninsular{% endblock %}
+
+{% block slides %}
+  {% for slide in slides %}
+  <li><img src="{{ slide.imagen.url }}" alt="" /></li>
+  {% endfor %}
+{% endblock %}
+
 {% block content %}
 
   <!-- servicios -->
-  <section id="services">
+  <section id="our-services">
     <h3>NUESTROS SERVICIOS</h3>
     <h2>¿Qué podemos ofrecer?</h2>
     <div class="service-items">

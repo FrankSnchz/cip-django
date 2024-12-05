@@ -4,5 +4,5 @@ from . import views
 urlpatterns = [
     path('', views.index_view, name='inicio'),  # Ruta raíz que muestra tu HTML
     path('chukum/', views.chukum_view, name='chukum'),
-    path('servicios/', views.servicios_view, name='servicios'),
+    path('servicios/', views.services_view, name='servicios'),
 ]

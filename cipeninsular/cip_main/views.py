@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Servicio, Slide, Project, Category, Producto, Empleado
 
 # Create your views here.
 def index_view(request):
-    servicios = Servicio.objects.all()  # Obtienes todos los servicios
-    slides = Slide.objects.filter(estatus=True).order_by('orden')  # Obtienes los slides activos y los ordenas
+    servicios = Servicio.objects.filter(parent__isnull=True)
+    slides = Slide.objects.filter(estatus=True, servicio__isnull=True).order_by('orden')
     proyectos = Project.objects.prefetch_related('images').all()
     empleados = Empleado.objects.all()
 
@@ -30,23 +30,33 @@ def chukum_view(request):
     ).distinct().prefetch_related('proyectos__images')  # Prefetch de las imágenes de proyectos
 
 
-    # Obtener los slides activos ordenados
-    slides = Slide.objects.filter(estatus=True).order_by('orden')
 
     return render(request, 'chukum.html', {
         'proyectos': proyectos_chukum,
         'productos': productos,
-        'slides': slides,
         'productos-chukum': productos_chukum,
     })
 
-def servicios_view(request):
-    # Puedes añadir datos al contexto si es necesario.
-    context = {
-        'titulo': 'Nuestros Servicios',
-        'descripcion': 'Descubre los servicios que ofrecemos.',
-    }
+def services_view(request):
+    servicio_id = request.GET.get('servicio_id')  # Obtenemos el servicio_id desde la URL
+    servicios = Servicio.objects.filter(parent__isnull=True)
+    print(f"Servicios principales obtenidos: {servicios}")
     
+    subservicio = None  # O algún valor predeterminado
+    slides = []
+    if servicio_id:
+        subservicio = get_object_or_404(Servicio, id=servicio_id)
+        print(f"Subservicio encontrado: {subservicio}")
+
+        
+        # Obtenemos las slides relacionadas con el servicio (subservicio o servicio principal)
+        slides = Slide.objects.filter(servicio=subservicio)  # Filtramos por servicio
+        print(f"Slides asociados al subservicio {subservicio.titulo}: {slides}")
+
+        $$##FALTA AGREGAR COSAS
     
-    return render(request, 'services.html', {      
-                  })
+    return render(request, 'services.html', {
+        'servicios':servicios, 
+        'subservicio':subservicio, 
+        'slides':slides
+    })

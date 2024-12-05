@@ -1,62 +1,36 @@
 {% extends 'base.html' %} 
 
-{% block title %}Cipeninsular{% endblock %} 
+{% block title %}Servicios{% endblock %} 
+
+{% block slides %}
+  {% for slide in slides %}
+  <li><img src="{{ slide.imagen.url }}" alt="" /></li>
+  {% endfor %}
+{% endblock %}
+
 {% block content %}
 
-<div class="container">
+<div id="services">
     <!-- Barra lateral -->
     <aside class="sidebar">
       <div class="services-list">
-        <h3>Lista de Servicios</h3>
-        <ul class="menu-s">
-          <!-- Arquitectura -->
-          <li class="menu-item-s">
-            <span>Arquitectura</span>
-            <ul class="submenu-s">
-              <li>Carpintería en General</li>
-              <li>Diseño de Exteriores</li>
-              <li>Diseño de Interiores</li>
-              <li>Diseños de Acabados de Interior de Chukum</li>
-              <li>Diseños de Piscinas</li>
-              <li>Escarpas y Estacionamientos</li>
-              <li>Pintura en General</li>
-              <li>Jardinería y Paisajismo</li>
+        <h3>Nuestros servicios</h3>
+        <ul class="menu-services">
+          <!-- Servicio -->
+          {% for servicio in servicios %}
+          <li class="item-service">
+            <p>{{ servicio.titulo }}</p>
+
+            {% if servicio.subservicios.all %}
+            <ul class="item-subservice">
+              <!-- Subservicio -->
+              {% for subservicio in servicio.subservicios.all %}
+              <li><a href="?servicio_id={{ subservicio.id }}">{{ subservicio.titulo }}</a></li>
+              {% endfor %}
             </ul>
+            {% endif %}
           </li>
-          <!-- Topografía -->
-          <li class="menu-item-s">
-            <span>Topografía</span>
-            <ul class="submenu-s">
-              <li>Proyectos de Carreteras</li>
-              <li>Señalamiento Vial</li>
-              <li>Escarpas y Estacionamientos</li>
-            </ul>
-          </li>
-          <!-- Ingeniería Civil -->
-          <li class="menu-item-s">
-            <span>Ingeniería Civil</span>
-            <ul class="submenu-s">
-              <li>Construcción en General</li>
-              <li>Pavimentaciones</li>
-              <li>Pisos de Molde</li>
-              <li>Pisos Industriales Epóxicos</li>
-              <li>Terracería</li>
-              <li>Plomería Hidráulica y Sanitaria</li>
-              <li>Herrería Industrial</li>
-              <li>Tornería</li>
-              <li>Electricidad Bifásica</li>
-              <li>Electricidad Trifásica</li>
-              <li>Electricidad Correctiva</li>
-              <li>Electricidad Preventiva</li>
-            </ul>
-          </li>
-          <!-- Estudio de Impacto Ambiental -->
-          <li class="menu-item-s">
-            <span>Estudio de Impacto Ambiental</span>
-            <ul class="submenu-s">
-              <li>Estudio de Impacto Ambiental</li>
-            </ul>
-          </li>
+          {% endfor %}
         </ul>
       </div>
     </aside>
@@ -135,26 +109,5 @@
         </p>
       </div>
     </div>
-  </div>
-  
-
-  <script>
-    // Función para manejar la apertura y cierre de submenús
-    document.querySelectorAll('.menu-item-s span').forEach(item => {
-      item.addEventListener('click', function() {
-        // Primero, cerrar todos los submenús abiertos
-        document.querySelectorAll('.submenu-s.visible').forEach(submenu => {
-          submenu.classList.remove('visible');
-        });
-  
-        // Toggle (abrir/cerrar) el submenú del item seleccionado
-        const submenu = this.nextElementSibling;
-        if (submenu && submenu.classList.contains('submenu-s')) {
-          submenu.classList.toggle('visible');
-        }
-      });
-    });
-  </script>
-  
-  
+  </div> 
 {% endblock %}

@@ -154,3 +154,17 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(counter);
   });
 });
+
+
+//------------------MENÚ DE SERVICIOS--------------//
+
+// Función para manejar la apertura y cierre de submenús
+document.querySelectorAll('.item-service p').forEach(item => {
+  item.addEventListener('click', function() {
+    // Toggle (abrir/cerrar) el submenú del item seleccionado
+    const submenu = this.nextElementSibling;
+    if (submenu && submenu.classList.contains('item-subservice')) {
+      submenu.classList.toggle('visible');
+    }
+  });
+});
