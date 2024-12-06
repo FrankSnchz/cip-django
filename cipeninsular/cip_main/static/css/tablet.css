@@ -111,7 +111,6 @@
         }
     }
 
-
     #partners {
         display: flex;
         flex-direction: column;
@@ -131,14 +130,42 @@
             width: 90vw;
         }
     }
-    footer{
-        .main-footer {
-            flex-direction: column;
-            gap: 20px;
 
+       /* footer */
+       footer {
+        .main-footer {
+            align-items: center;
+            gap: 20px;
+        
             .about-info {
                 width: 100%;
                 text-align: center;
+            }
+    
+            .contact-info {
+                width: 100%;
+                gap: 3px;
+                align-items: center;
+        
+                .contact-item {
+                    align-items: center;
+                }
+                
+                .logos-contact {
+                    gap: 10px;
+                }
+            }
+    
+            .ubication-info {
+                width: 100%;
+                align-items: center;
+                gap: 3px;
+            }
+    
+            .help-info {
+                width: 100%;
+                align-items: center;
+                gap: 3px;
             }
         }
     }
@@ -273,6 +300,136 @@
             .arrow-right
             {
                 right: 5px;
+            }
+        }
+    }
+
+    #services {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      
+        /* Barra lateral */
+        .sidebar {
+            padding: 0px;
+            width: 80%;
+
+            h3 {
+                font-size: 1rem;
+            }
+      
+            /* Menú */
+            .menu-services {
+                display: flex;
+                flex-direction: column;
+        
+                .item-service {
+                    margin-bottom: 0px;
+        
+                    p {
+                        font-size: 1rem;
+                        font-weight: 600;
+                        padding: 10px;          
+                    }
+      
+      
+                    .item-subservice {
+            
+                        li {
+                            a{
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+      
+        /* Contenido principal */
+        .main-content {
+            width: 90%;
+            display: flex;
+
+      
+            .title {
+        
+                h1 {
+                    font-size: 1.5rem;
+                }
+            
+                p {
+                    font-size: .9rem;
+                    text-align: justify;
+                }
+            }
+
+            .why-choose-us {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h2 {
+                    font-size: 1.3rem;
+                }
+            
+                p {
+                    font-size: .9rem;
+                    line-height: 1.6;
+                    text-align: justify;
+
+                }
+            }
+            
+            .facts {
+                /* Sección de características */
+                .features {
+                    margin-bottom: 5px; /* Asegura que los elementos tengan espacio vertical */
+                    gap: 5px;
+                
+                    .icons{
+                        font-size: 20px;
+                    }
+                    
+                    h3{
+                        font-size: 1rem;
+                    }
+
+                    p {
+                        font-size: .8rem;
+                    }     
+                }
+            }
+      
+            .our-job {
+                gap: 10px;
+                display: flex;
+                flex-direction: column;
+        
+                .demo {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    h2 {
+                        font-size: 1rem;
+                    }
+
+                    p {
+                        font-size: .8rem;
+                        text-align: justify;
+                    }
+                }
+      
+                figure {
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden; /* Esto asegura que cualquier parte que sobresalga de la imagen se oculte */
+
+                    img {
+                        height: 100%;
+                        object-fit: cover; /* Recorta la imagen para llenar el contenedor sin distorsionarla */
+                    }
+                }
             }
         }
     }

@@ -12,7 +12,7 @@ def index_view(request):
 
 def chukum_view(request):
     productos = Producto.objects.all()  # Asegúrate de que esté obteniendo todos los productos
-    
+
     # Obtener la categoría "Chukum"
     try:
         chukum_category = Category.objects.get(nombre="Chukum")
@@ -40,25 +40,21 @@ def chukum_view(request):
 def services_view(request):
     servicio_id = request.GET.get('servicio_id')  # Obtenemos el servicio_id desde la URL
     servicios = Servicio.objects.filter(parent__isnull=True)
-    print(f"Servicios principales obtenidos: {servicios}")
-    
+
     subservicio = None  # O algún valor predeterminado
     slides = []
     if servicio_id:
         subservicio = get_object_or_404(Servicio, id=servicio_id)
-        print(f"Subservicio encontrado: {subservicio}")
 
-        
         # Obtenemos las slides relacionadas con el servicio (subservicio o servicio principal)
         slides = Slide.objects.filter(servicio=subservicio)  # Filtramos por servicio
-        print(f"Slides asociados al subservicio {subservicio.titulo}: {slides}")
 
         ##FALTA AGREGAR COSAS
     
     return render(request, 'services.html', {
         'servicios':servicios, 
         'subservicio':subservicio, 
-        'slides':slides
+        'slides':slides,
     })
 
 def generalservices_view(request):

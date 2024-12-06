@@ -364,6 +364,7 @@ html
   background-color: rgb(194, 194, 194);
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
+
 /*parallax*/
 #parallax {
   background-image: url('../images/img-parallax.png');
@@ -1251,13 +1252,11 @@ footer {
 
 
 /* VENTANA SERVICIOS */
-
-/* Contenedor principal */
 #services {
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin: 10px;
 
   /* Barra lateral */
   .sidebar {
@@ -1304,6 +1303,12 @@ footer {
             background-color: #e9ecef;
             border-left: 3px solid #007bff;
             border-bottom: 1px solid #ddd;
+
+            a {
+              font-size: .9rem;
+              text-decoration: none;
+              color: black;
+            }
           }
           li:hover {
             background-color: #d6e0f0;
@@ -1321,72 +1326,79 @@ footer {
     padding: 20px;
     background-color: #fff;
     width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      h1 {
+        font-size: 2rem;
+      }
+  
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+    }
+    
+    .facts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+  
+      /* Sección de características */
+      .features {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 calc(50% - 20px); /* Hace que cada .features ocupe el 50% del ancho del contenedor con un espacio entre ellos */
+        background-color:var(--yellow-secondary);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s ease;
+        margin-bottom: 10px; /* Asegura que los elementos tengan espacio vertical */
+        border-radius: 5px;
+        gap: 10px;
+  
+        .icons{
+          font-size: 30px;
+          color: var(--blue-primary);
+        }
+        
+        h3{
+          color: white;
+        }
+        p {
+          font-size: 1rem;
+        }
+  
+      }
+      .features:hover {
+        transform: translateY(-10px);
+      }
+    }
+
+    .our-job {
+      display: flex;
+      gap: 20px;
+
+      .demo {
+        width: 50%;
+      }
+
+      figure {
+        width: 50%;
+        img {
+          width: 100%;
+        }
+      }
+    }
   }
-
-.main-content h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.main-content p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.images-section {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.images-section img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
-}
-
-.container-s {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 50px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Sección de características */
-.feature-s {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  text-align: center;
-  padding: 20px;
-  transition: transform 0.3s ease;
-}
-
-.feature-s:hover {
-  transform: translateY(-10px);
-}
-
-.icon-s i {
-  font-size: 50px;
-  color: #007bff;
-  margin-bottom: 15px;
-}
-
-.text-s h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.text-s p {
-  font-size: 0.95rem;
-  color: #6c757d;
-  line-height: 1.5;
-}
 }
 
 /* SERVICIOS GENERALES *REVISAR* */
