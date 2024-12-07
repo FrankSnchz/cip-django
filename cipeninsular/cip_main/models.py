@@ -5,6 +5,11 @@ class Servicio(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField()
     imagen = models.ImageField(upload_to='servicios/')
+    icono = models.ImageField(
+        upload_to='iconos/',  # Carpeta donde se guardarán las imágenes de los iconos
+        blank=True,          # Opcional: Permitir que esté vacío
+        null=True            # Opcional: Permitir que sea nulo
+    )
     parent = models.ForeignKey(
         'self',  # Relación a sí mismo
         on_delete=models.CASCADE,  # Si eliminas un servicio, se eliminan los subservicios

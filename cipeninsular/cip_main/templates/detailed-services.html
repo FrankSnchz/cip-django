@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header_class %}servicios detallados{% endblock %}
+{% block title %}Cipeninsular | Servicios Detallados{% endblock %}
+
+<!--BLOQUE PARA EL HERO-->
+{% block hero %}
+  <h1>TEST 2</h1>
+{% endblock %}
+
+<!--BLOQUE PARA LOS SLIDES-->
+{% block slides %}
+<ul class="rslides">
+  {% for slide in slides %}
+    <li>
+      <img src="{{ slide.imagen.url }}" alt="" />
+    </li>
+  {% empty %}
+    <!-- Imagen estática por defecto -->
+    <li>
+      <img src="{% static 'images/img-services.png' %}" alt="Slide por defecto" />
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+{% block content %}
+<div id="detailed_services">
+  <!-- Barra lateral -->
+  <aside class="sidebar">
+    <div class="services-list">
+      <h3>Nuestros servicios</h3>
+      <ul class="menu-services">
+        <!-- Servicio -->
+        {% for servicio in servicios %}
+        <li class="item-service">
+          <p>{{ servicio.titulo }}</p>
+
+          {% if servicio.subservicios.all %}
+          <ul class="item-subservice">
+            <!-- Subservicio -->
+            {% for subservicio in servicio.subservicios.all %}
+            <li><a href="?servicio_id={{ subservicio.id }}">{{ subservicio.titulo }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Contenido principal -->
+  <main class="main-content">
+    <div class="title">
+      <h1>Transformamos tus ideas en espacios funcionales y estéticamente agradables.
+      </h1>
+      <p>
+        En Cipeninsular nos especializamos en ofrecer soluciones integrales en Arquitectura, Ingeniería civil,
+        Topografía y más. Con un enfoque en la calidad, profesionalismo y experiencia, nos aseguramos de que cada proyecto
+        sea único y cumpla con tus expectativas. Ya sea que necesites diseño de interiores, proyectos de construcción, o
+        un estudio de impacto ambiental, nuestro equipo está preparado para ofrecerte el mejor servicio. ¡Contáctanos hoy
+        y juntos haremos realidad tus proyectos!
+      </p>
+    </div>
+    
+    <div class="why-choose-us">
+      <h2>¿Por qué elegirnos?</h2>
+      <p>
+        Ofrecemos un enfoque integral en cada proyecto, combinando experiencia en arquitectura, ingeniería y estudios de
+        impacto ambiental. Nos comprometemos a entregar resultados excepcionales, garantizando calidad, precisión y
+        sostenibilidad en cada etapa. Confía en nosotros para hacer realidad tus ideas con un servicio confiable y
+        profesional.
+      </p>
+    </div>
+
+    <div class="facts">
+      <div class="features">
+        <i class="icons fa-brands fa-codepen"></i>
+        <h3>Enfoque en el cliente</h3>
+        <p>
+          Los clientes nos eligen por la comunicación simple y la claridad en la visión del resultado final.
+        </p>
+      </div>
+
+      <div class="features">
+        <i class="icons fa-solid fa-hand-point-up"></i>
+        <h3>Profesionalismo</h3>
+        <p>
+          Realizamos un proceso integral de documentación de proyectos, desde el boceto inicial hasta la documentación final del diseño.
+        </p>
+      </div>
+
+      <div class="features">
+        <i class="icons fa-solid fa-explosion"></i>
+        <h3>Experiencia múltiple</h3>
+        <p>
+          Ofrecemos una variedad de servicios en distintos estilos de diseño, especializados en proyectos comerciales y residenciales.
+        </p>
+      </div>
+
+      <div class="features">
+        <i class="icons fa-solid fa-user-astronaut"></i>
+        <h3>Creación de espacios</h3>
+        <p>
+          Creamos espacios funcionales y estéticamente atractivos, seleccionando cuidadosamente materiales y fabricantes.        </p>
+      </div>
+    </div>
+
+    <div class="our-job">
+      <figure>
+        <img src="{% static 'images/img-demo-service.png' %}" alt="Delivery Image">
+      </figure>
+      <div class="demo">
+        <h2>Garantizamos un trabajo de calidad</h2>
+        <p>
+          Nos aseguramos de que cada proyecto sea ejecutado con los más altos estándares de calidad. Nuestro equipo
+          altamente capacitado trabaja con dedicación y precisión, garantizando resultados duraderos y satisfactorios. Tu
+          satisfacción es nuestra prioridad y nos comprometemos a superar tus expectativas en cada detalle.
+        </p>
+      </div>
+    </div>
+  </main> 
+</div>
+{% endblock %}

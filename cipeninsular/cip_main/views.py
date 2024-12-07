@@ -37,7 +37,7 @@ def chukum_view(request):
         'productos-chukum': productos_chukum,
     })
 
-def services_view(request):
+def detailed_services_view(request):
     servicio_id = request.GET.get('servicio_id')  # Obtenemos el servicio_id desde la URL
     servicios = Servicio.objects.filter(parent__isnull=True)
 
@@ -51,18 +51,23 @@ def services_view(request):
 
         ##FALTA AGREGAR COSAS
     
-    return render(request, 'services.html', {
+    return render(request, 'detailed-services.html', {
         'servicios':servicios, 
         'subservicio':subservicio, 
         'slides':slides,
     })
 
-def generalservices_view(request):
-    servicios = Servicio.objects.all()  # Obtienes todos los servicios
+def services_view(request):
+    servicios = Servicio.objects.filter(parent__isnull=True)
+    slides = Slide.objects.filter(estatus=True, servicio__isnull=True).order_by('orden')
+    proyectos_recientes = Project.objects.all().order_by('-fecha_creado')[:4]
 
-    return render(request, 'general-services.html', {'servicios': servicios,})
+    return render(request, 'services.html', {
+        'servicios': servicios, 
+        'slides':slides, 
+        'proyectos_recientes':proyectos_recientes})
 
-def contactus_view(request):
+def contact_us_view(request):
     servicios = Servicio.objects.all()  # Obtienes todos los servicios
 
     return render(request, 'contact-us.html', {'servicios': servicios,})

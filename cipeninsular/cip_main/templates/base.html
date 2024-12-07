@@ -69,13 +69,6 @@
             <!--MENÚ CHUKUM-->
             <li class="menu-item">
               <a href="{% url 'chukum' %}">MI CHUKUM</a>
-              <ul class="submenu">
-                <li>
-                  <a href="#">Submenu 1</a>
-                </li>
-                <li><a href="#">Submenu 2</a></li>
-                <li><a href="#">Submenu 3</a></li>
-              </ul>
             </li>
 
             <!--MENÚ SERVICIOS-->
@@ -85,9 +78,9 @@
               ></a>
               <ul class="submenu">
                 <li>
-                  <a href="{% url 'servicios generales' %}">Nuestros servicios</a>
+                  <a href="{% url 'servicios' %}">Nuestros servicios</a>
                 </li>
-                <li><a href="{% url 'servicios' %}">Servicios detallados</a></li>
+                <li><a href="{% url 'servicios detallados' %}">Servicios detallados</a></li>
               </ul>
             </li>
 
@@ -127,11 +120,13 @@
 
         <i class="cart fa-solid fa-cart-shopping"> </i>
       </header>
-
       <!-- hero -->
-      <section class="hero">
-        <h1></h1>
+      <section class="{% if request.path == '/' %}hero{% elif request.path == '/servicios/' %}hero-servicios{% elif request.path == '/chukum/' %}hero-chukum{% endif %}">
+        {% block hero %}
+
+        {% endblock %}
       </section>
+      
     </div>
 
     <main>

@@ -2,12 +2,15 @@
 
 {% block title %}Cipeninsular{% endblock %}
 
+<!--BLOQUE DE SLIDES-->
 {% block slides %}
   {% for slide in slides %}
   <li><img src="{{ slide.imagen.url }}" alt="" /></li>
   {% endfor %}
 {% endblock %}
 
+
+<!--BLOQUE DE CONTENIDO PRINCIPAL-->
 {% block content %}
 
   <!-- servicios -->
@@ -21,7 +24,7 @@
       <article class="wow animate__animated animate__fadeInDown service-item">
         <div class="icon-title">
           <figure>
-            <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo }}" />
+            <img src="{{ servicio.icono.url }}" alt="{{ servicio.titulo }}" />
           </figure>
           <h2 class="title-service">{{ servicio.titulo }}</h2>
         </div>

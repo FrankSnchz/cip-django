@@ -1,119 +1,144 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Servicios{% endblock %}
+{% block header_class %}servicios{% endblock %}
+{% block title %}Cipeninsular | Servicios{% endblock %}
 
+<!--BLOQUE DE SLIDES-->
 {% block slides %}
-<ul class="rslides">
   {% for slide in slides %}
-    <li>
-      <img src="{{ slide.imagen.url }}" alt="" />
-    </li>
-  {% empty %}
-    <!-- Imagen estática por defecto -->
-    <li>
-      <img src="{% static 'images/img-services.png' %}" alt="Slide por defecto" />
-    </li>
+  <li><img src="{{ slide.imagen.url }}" alt="" /></li>
   {% endfor %}
-</ul>
 {% endblock %}
 
-{% block content %}
-<div id="services">
-  <!-- Barra lateral -->
-  <aside class="sidebar">
-    <div class="services-list">
-      <h3>Nuestros servicios</h3>
-      <ul class="menu-services">
-        <!-- Servicio -->
-        {% for servicio in servicios %}
-        <li class="item-service">
-          <p>{{ servicio.titulo }}</p>
-
-          {% if servicio.subservicios.all %}
-          <ul class="item-subservice">
-            <!-- Subservicio -->
-            {% for subservicio in servicio.subservicios.all %}
-            <li><a href="?servicio_id={{ subservicio.id }}">{{ subservicio.titulo }}</a></li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
+<!--BLOQUE PARA EL HERO-->
+{% block hero %}
+<div class="hero-content">
+    <h1>Brindamos servicios profesionales y de alta calidad</h1>
+    <p>¿Necesitas ayuda con tus diseños? Contamos con un equipo altamente especializado para ofrecerte soluciones innovadoras</p>
+    <div class="buttons">
+        <a href="{% url 'servicios' %}" class="button-discover">Servicios detallados</a>
+        <a href="#" class="button-contact">Contáctanos</a>
     </div>
-  </aside>
+</div>
+{% endblock %}
 
-  <!-- Contenido principal -->
-  <main class="main-content">
-    <div class="title">
-      <h1>Transformamos tus ideas en espacios funcionales y estéticamente agradables.
-      </h1>
-      <p>
-        En Cipeninsular nos especializamos en ofrecer soluciones integrales en Arquitectura, Ingeniería civil,
-        Topografía y más. Con un enfoque en la calidad, profesionalismo y experiencia, nos aseguramos de que cada proyecto
-        sea único y cumpla con tus expectativas. Ya sea que necesites diseño de interiores, proyectos de construcción, o
-        un estudio de impacto ambiental, nuestro equipo está preparado para ofrecerte el mejor servicio. ¡Contáctanos hoy
-        y juntos haremos realidad tus proyectos!
-      </p>
+<!--BLOQUE CONTENIDO PRINCIPAL-->
+{% block content %}
+<section id="services">
+    <div class="services-title">
+        <p><i class="fa-solid fa-screwdriver-wrench"></i>  Todos nuestros servicios</p>
+        <h2>Nuestros servicios son garantía de calidad</h2>
+        <p>Ofrecemos una amplia gama de servicios de arquitectura, diseñados tanto para clientes residenciales como comerciales. Aunque muchos desafíos pueden parecer solucionables de forma independiente, la mayoría de los problemas arquitectónicos requieren la experiencia de un profesional</p>
     </div>
     
-    <div class="why-choose-us">
-      <h2>¿Por qué elegirnos?</h2>
-      <p>
-        Ofrecemos un enfoque integral en cada proyecto, combinando experiencia en arquitectura, ingeniería y estudios de
-        impacto ambiental. Nos comprometemos a entregar resultados excepcionales, garantizando calidad, precisión y
-        sostenibilidad en cada etapa. Confía en nosotros para hacer realidad tus ideas con un servicio confiable y
-        profesional.
-      </p>
+    <div class="service-articles">
+        {% for servicio in servicios %}
+
+        <article>
+            <figure class="imagen">
+                <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo }}">
+            </figure>
+            
+            <div class="info">
+                <figure class="icon">
+                    <img src="{{ servicio.icono.url }}" alt="">
+                </figure>
+                <h3>{{ servicio.titulo }}</h3>
+                <p>{{ servicio.descripcion }}</p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- nuestros proyectos -->
+
+<section id="services-projects">
+    <div class="projects-title">
+        <h2>Nuestros últimos proyectos</h2>
+        <p>Proyectos innovadores y funcionales, diseñados para satisfacer las necesidades de nuestros clientes, mejorando tanto espacios residenciales como comerciales con un enfoque en estética y sostenibilidad</p>
     </div>
 
-    <div class="facts">
-      <div class="features">
-        <i class="icons fa-brands fa-codepen"></i>
-        <h3>Enfoque en el cliente</h3>
-        <p>
-          Los clientes nos eligen por la comunicación simple y la claridad en la visión del resultado final.
-        </p>
-      </div>
-
-      <div class="features">
-        <i class="icons fa-solid fa-hand-point-up"></i>
-        <h3>Profesionalismo</h3>
-        <p>
-          Realizamos un proceso integral de documentación de proyectos, desde el boceto inicial hasta la documentación final del diseño.
-        </p>
-      </div>
-
-      <div class="features">
-        <i class="icons fa-solid fa-explosion"></i>
-        <h3>Experiencia múltiple</h3>
-        <p>
-          Ofrecemos una variedad de servicios en distintos estilos de diseño, especializados en proyectos comerciales y residenciales.
-        </p>
-      </div>
-
-      <div class="features">
-        <i class="icons fa-solid fa-user-astronaut"></i>
-        <h3>Creación de espacios</h3>
-        <p>
-          Creamos espacios funcionales y estéticamente atractivos, seleccionando cuidadosamente materiales y fabricantes.        </p>
-      </div>
+    <div class="projects-articles">
+        {% for proyecto_reciente in proyectos_recientes %}
+        <article>
+            <figure>
+                <img src="{{ proyecto_reciente.caratula.url }}" alt="{{ proyecto_reciente.nombre}}">
+            </figure>
+            <div class="project-overlay">
+                <h3>{{ proyecto_reciente.nombre }}</h3>
+                <button>Ver proyecto</button>
+            </div>
+        </article>
+        {% endfor %}
     </div>
+    
+</section>
 
-    <div class="our-job">
-      <figure>
-        <img src="{% static 'images/img-demo-service.png' %}" alt="Delivery Image">
-      </figure>
-      <div class="demo">
-        <h2>Garantizamos un trabajo de calidad</h2>
-        <p>
-          Nos aseguramos de que cada proyecto sea ejecutado con los más altos estándares de calidad. Nuestro equipo
-          altamente capacitado trabaja con dedicación y precisión, garantizando resultados duraderos y satisfactorios. Tu
-          satisfacción es nuestra prioridad y nos comprometemos a superar tus expectativas en cada detalle.
-        </p>
-      </div>
+<!-- testimonios de clientes -->
+<section id="services-testimonials">
+    <div class="testimonials-title">
+        <h2>Que dicen nuestros clientes</h2>
+        <p>Descubre lo que nuestros clientes tienen que decir sobre su experiencia con CIPeninsular. Sus historias reflejan nuestro compromiso con la calidad, el diseño innovador y la atención personalizada en cada proyecto.</p>    
     </div>
-  </main> 
-</div>
+   
+    <div class="testimonials-articles">
+        <!-- Testimonial 1 -->
+        <article>
+            <div class="testimonial">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>¡Fue una experiencia increíble! El equipo fue profesional, eficiente y solucionó mis dudas en poco tiempo.</p>
+            </div>
+            
+            <div class="testimonial-client">
+                <figure>
+                    <img src="client1.jpg" alt="Cliente">
+                </figure>
+                <div class="client-info">
+                    <h3>Rosa María</h3>
+                    <p>Cliente frecuente</p>
+                    <div class="client-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+            </div>
+        </article>
+
+        <article>
+            <div class="testimonial">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>El equipo de Cipeninsular transformó nuestro proyecto arquitectónico de manera increíble. La atención al detalle y la eficiencia en el proceso fueron excepcionales.</p>
+            </div>
+        
+            <div class="testimonial-client">
+                <figure>
+                    <img src="client1.jpg" alt="Cliente">
+                </figure>
+                <div class="client-info">
+                    <h3>Juan Pérez</h3>
+                    <p>Arquitecto Independiente</p>
+                    <div class="client-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+            </div>
+        </article>
+        
+        <article>
+            <div class="testimonial">
+                <i class="fa-solid fa-quote-left"></i>
+                <p>La colaboración con Cipeninsular fue clave para llevar a cabo nuestra remodelación. Su enfoque profesional y compromiso con los plazos fue fundamental para cumplir con nuestras expectativas.</p>
+            </div>
+        
+            <div class="testimonial-client">
+                <figure>
+                    <img src="client2.jpg" alt="Cliente">
+                </figure>
+                <div class="client-info">
+                    <h3>María López</h3>
+                    <p>Dueña de empresa de diseño de interiores</p>
+                    <div class="client-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
 {% endblock %}
