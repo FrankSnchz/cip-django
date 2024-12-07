@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Servicios{% endblock %}
+
+{% block content %}
+
+<div class="cu-container">
+    <!-- Left Section -->
+    <div class="cu-left-section">
+        <h2>Agenda tu cita con nosotros y hagamos tu idea realidad</h2>
+        <p>Con gusto te atenderemos</p>
+        <form action="#" method="post">
+            <input type="text" placeholder="Enter your Name" required>
+            <input type="email" placeholder="Enter a valid email address" required>
+            <textarea placeholder="Enter your message" rows="5" required></textarea>
+            <button type="submit">ENVIAR</button>
+        </form>
+    </div>
+
+    <!-- Right Section -->
+    <div class="cu-right-section">
+        <h2>Estamos aquí</h2>
+        <p>Lunes a viernes de 8:30 a.m. a 5 p.m. / Los teléfonos están abiertos las 24 horas, los 7 días de la semana.</p>
+        <div class="cu-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d59618.871953421694!2d-89.5614976!3d20.9453056!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f567aef9a1b1f31%3A0xd33d16f16ea390ed!2sHacienda%20Teya%20-%20Fundada%20en%201683!5e0!3m2!1ses!2smx!4v1733525876012!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="cu-social">
+    <h3>También nos puede encontrar aquí</h3>
+    <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-instagram"></i>
+    <i class="fa-brands fa-youtube"></i>
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe directamente
+
+        // Obtiene los valores de los campos
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // Expresión regular para validar el correo electrónico
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Validación de campos
+        if (!name) {
+            alert('Por favor, ingrese su nombre.');
+            return;
+        }
+
+        if (!email) {
+            alert('Por favor, ingrese su correo electrónico.');
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            alert('Por favor, ingrese un correo electrónico válido.');
+            return;
+        }
+
+        if (!message) {
+            alert('Por favor, ingrese un mensaje.');
+            return;
+        }
+
+        // Si todo es válido, se muestra un mensaje o se puede proceder con el envío
+        alert('Formulario enviado con éxito.');
+        // Aquí puedes agregar el envío del formulario a un servidor
+        // Por ejemplo: form.submit();
+    });
+</script>
+
+{% endblock %}

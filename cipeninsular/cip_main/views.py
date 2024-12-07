@@ -61,3 +61,8 @@ def generalservices_view(request):
     servicios = Servicio.objects.all()  # Obtienes todos los servicios
 
     return render(request, 'general-services.html', {'servicios': servicios,})
+
+def contactus_view(request):
+    servicios = Servicio.objects.all()  # Obtienes todos los servicios
+
+    return render(request, 'contact-us.html', {'servicios': servicios,})
